@@ -1,0 +1,50 @@
+.zoom-controls {
+  position: absolute;
+  bottom: 48px; // Above footer
+  right: $spacing-md;
+  @include flex-column;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: $border-radius;
+  padding: $spacing-xs;
+  z-index: $z-floating;
+  box-shadow: $shadow-md;
+
+  &__btn {
+    @include icon-button(36px);
+    background-color: transparent;
+    color: var(--text-secondary);
+    border-radius: $border-radius-sm;
+
+    &:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &__level {
+    @include flex-center;
+    height: 28px;
+    padding: 0 $spacing-xs;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-primary);
+    min-width: 44px;
+    text-align: center;
+  }
+
+  &__divider {
+    height: 1px;
+    background-color: var(--border);
+    margin: $spacing-xs 0;
+  }
+}
