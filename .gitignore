@@ -16,6 +16,8 @@ package-lock.json
 =======
 >>>>>>> refs/rewritten/onto
 
+.env
+
 # Test outputs
 coverage
 test-results
