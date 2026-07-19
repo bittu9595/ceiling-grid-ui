@@ -1,0 +1,32 @@
+.grid-editor-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--bg-primary);
+
+  &__main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  > .grid-stats-panel {
+    flex-shrink: 0;
+  }
+
+  &__canvas-area {
+    flex: 1;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: $border-radius;
+    background-color: #e2e8f0;
+
+    [data-theme="dark"] & {
+      background-color: #0f172a;
+    }
+  }
+}
