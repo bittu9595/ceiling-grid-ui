@@ -1,0 +1,50 @@
+import { defineConfig } from "vitest/config";
+import react from "@vitejs/plugin-react";
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    globals: true,
+    environment: "happy-dom",
+    setupFiles: ["./vitest.setup.ts"],
+    reporters: ["default", "junit"],
+    include: ["src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
+    exclude: ["**/node_modules/**", "**/dist/**"],
+    coverage: {
+      enabled: true,
+      provider: "v8",
+      reporter: ["text", "lcov", "cobertura"],
+      reportsDirectory: "./coverage",
+      thresholds: {
+        statements: 85,
+        branches: 85,
+        functions: 80,
+        lines: 80,
+      },
+      exclude: [
+        "**/index.ts",
+        "**/eslint.config.mjs",
+        "**/vite.config.ts",
+        "vitest.setup.ts",
+        "**/vitest.config.ts",
+        "**/dist",
+        "**/.eslintrc.cjs",
+        "**/tests/**",
+        "**/tests.ts",
+        "**/__tests__/**",
+        "**/__mocks__/**",
+        "**/mocks/**",
+        "**/types/**",
+        "**/types.ts",
+        "**/*.type.ts",
+        "**/*.types.ts",
+        "**/constants/**",
+        "**/App.tsx",
+        "**/main.tsx",
+        "**/coverage/**",
+        "config/**",
+        "**/public/**",
+      ],
+    },
+  },
+});
