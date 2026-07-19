@@ -1,0 +1,161 @@
+.grid-controls {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  width: 100%;
+
+  @media (max-width: $breakpoint-md) {
+    gap: $spacing-sm;
+  }
+
+  &__dimensions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-left: 17px;
+
+    @media (max-width: $breakpoint-sm) {
+      gap: $spacing-xs;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+
+    @media (max-width: $breakpoint-sm) {
+      .grid-controls__label {
+        display: none;
+      }
+    }
+  }
+
+  &__label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__input {
+    width: 64px;
+    height: 32px;
+    padding: 0 $spacing-sm;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: $border-radius-sm;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    transition: border-color $transition-speed ease;
+
+    @media (max-width: $breakpoint-sm) {
+      width: 48px;
+      font-size: 13px;
+    }
+
+    &:hover {
+      border-color: var(--border-hover);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    appearance: textfield;
+    -moz-appearance: textfield;
+  }
+
+  &__preset-dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+
+    // Override Dropdown component styles to match grid controls
+    .dropdown__label {
+      font-size: 10px;
+      color: var(--text-secondary);
+    }
+
+    .dropdown__trigger {
+      height: 32px;
+      min-width: 140px;
+      font-size: 13px;
+    }
+
+    .dropdown__listbox {
+      min-width: 180px;
+    }
+  }
+
+  &__action-btn {
+    width: 32px;
+    height: 32px;
+    padding: 0 !important;
+    min-width: 32px !important;
+  }
+
+  &__stats {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin-left: auto;
+    padding-left: $spacing-lg;
+
+    @media (max-width: $breakpoint-lg) {
+      display: none;
+    }
+  }
+
+  &__stat {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-size: 12px;
+    color: var(--text-secondary);
+
+    strong {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    &-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    &--light .grid-controls__stat-dot {
+      background-color: $color-light;
+    }
+
+    &--air-supply .grid-controls__stat-dot {
+      background-color: $color-air-supply;
+    }
+
+    &--air-return .grid-controls__stat-dot {
+      background-color: $color-air-return;
+    }
+
+    &--smoke-detector .grid-controls__stat-dot {
+      background-color: $color-smoke-detector;
+    }
+
+    &--invalid .grid-controls__stat-dot {
+      background-color: $color-invalid;
+    }
+  }
+}
