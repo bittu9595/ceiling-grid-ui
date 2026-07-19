@@ -12,6 +12,10 @@ interface UseGridInteractionsProps {
   readonly cellSize: number;
 }
 
+/*
+ * Handles pointer-driven grid interactions.
+ * Manages hover, selection, placement, dragging, and pan behavior for the canvas.
+ */
 export function useGridInteractions({ cellSize }: UseGridInteractionsProps) {
   const [hoverCell, setHoverCell] = useState<GridPosition | null>(null);
   const [dragTarget, setDragTarget] = useState<GridComponent | null>(null);
@@ -26,6 +30,9 @@ export function useGridInteractions({ cellSize }: UseGridInteractionsProps) {
   const selectComponent = useAppStore((state) => state.selectComponent);
   const setOffset = useAppStore((state) => state.setOffset);
 
+  /*
+   * Handle a click on the canvas stage and place or select a grid item.
+   */
   const handleStageClick = useCallback(
     (event: { target: { getStage: () => unknown }; evt: MouseEvent }) => {
       if (event.target !== event.target.getStage()) return; // Clicked on a shape, not stage
@@ -67,6 +74,9 @@ export function useGridInteractions({ cellSize }: UseGridInteractionsProps) {
     ],
   );
 
+  /*
+   * Track the current pointer cell so the hover preview can follow the cursor.
+   */
   const handleStageMouseMove = useCallback(
     (event: { evt: MouseEvent }) => {
       const { offsetX: x, offsetY: y } = event.evt;
@@ -87,10 +97,16 @@ export function useGridInteractions({ cellSize }: UseGridInteractionsProps) {
     [viewport, cellSize, grid.height, grid.width],
   );
 
+  /*
+   * Clear the hover cell when the pointer leaves the canvas surface.
+   */
   const handleStageMouseLeave = useCallback(() => {
     setHoverCell(null);
   }, []);
 
+  /*
+   * Commit the drag offset once the pan interaction finishes.
+   */
   const handleStageDragEnd = useCallback(
     (event: {
       target: {
@@ -107,6 +123,9 @@ export function useGridInteractions({ cellSize }: UseGridInteractionsProps) {
     [viewport.offsetX, viewport.offsetY, setOffset],
   );
 
+  /*
+   * Select or erase the clicked component based on the current tool.
+   */
   const handleCellSelect = useCallback(
     (component: GridComponent) => {
       if (selectedTool === TOOL_TYPES.ERASER) {
@@ -118,10 +137,16 @@ export function useGridInteractions({ cellSize }: UseGridInteractionsProps) {
     [selectedTool, removeComponent, selectComponent],
   );
 
+  /*
+   * Capture the component being dragged so its destination can be applied later.
+   */
   const handleCellDragStart = useCallback((component: GridComponent) => {
     setDragTarget(component);
   }, []);
 
+  /*
+   * Update the moved component position and clamp it to the grid bounds.
+   */
   const handleCellDragEnd = useCallback(
     (row: number, col: number) => {
       if (dragTarget) {

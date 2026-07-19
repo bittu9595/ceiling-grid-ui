@@ -8,6 +8,10 @@ interface ToolButtonProps {
   readonly onClick: () => void;
 }
 
+/*
+ * Renders a single sidebar tool action button.
+ * Displays the active state and accessibility metadata for that tool.
+ */
 export default function ToolButton({
   tool,
   isActive,

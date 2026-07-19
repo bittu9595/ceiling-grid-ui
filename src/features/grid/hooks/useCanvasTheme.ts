@@ -29,6 +29,10 @@ const DARK_THEME = {
   eraserColor: "#ef4444",
 };
 
+/*
+ * Returns the canvas color palette for the active theme.
+ * Keeps Konva drawing colors in sync with the app's light/dark mode.
+ */
 export function useCanvasTheme() {
   const theme = useAppStore((state) => state.ui.theme);
 

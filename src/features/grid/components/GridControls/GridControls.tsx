@@ -5,6 +5,10 @@ import { useComponentStats, useGridSizeControls } from "../../hooks";
 import "./GridControls.scss";
 import { useAppStore } from "../../../../store";
 
+/*
+ * Renders the grid size and component stats controls.
+ * Lets users modify dimensions, choose presets, and inspect component totals.
+ */
 export function GridControls() {
   const grid = useAppStore((state) => state.grid);
   const widthId = useId();

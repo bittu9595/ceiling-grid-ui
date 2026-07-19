@@ -9,6 +9,10 @@ import { Sidebar } from "../../features/toolbar/Sidebar";
 import "./GridEditorPage.scss";
 import { useAppStore, useSetHeaderMenuSlot } from "../../store";
 
+/*
+ * Renders the main grid editor workspace.
+ * Registers the page header menu and combines the sidebar and canvas view.
+ */
 export default function GridEditorPage() {
   const isSidebarCollapsed = useAppStore(
     (state) => state.ui.isSidebarCollapsed,

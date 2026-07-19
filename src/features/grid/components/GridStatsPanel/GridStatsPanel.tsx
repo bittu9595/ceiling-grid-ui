@@ -2,6 +2,10 @@ import { COMPONENTS } from "../../constants";
 import { useComponentStats } from "../../hooks";
 import "./GridStatsPanel.scss";
 
+/*
+ * Displays a summary of the current component distribution.
+ * Shows counts for each ceiling component type on the grid.
+ */
 export function GridStatsPanel() {
   const stats = useComponentStats();
 

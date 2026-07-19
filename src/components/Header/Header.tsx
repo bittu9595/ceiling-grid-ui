@@ -3,6 +3,10 @@ import { Button } from "../Button/Button";
 import "./Header.scss";
 import { useAppStore, useHeaderMenuSlot } from "../../store";
 
+/*
+ * Renders the shared application header.
+ * Displays the brand, page actions, and optional menu slot content.
+ */
 export function Header() {
   const theme = useAppStore((state) => state.ui.theme);
   const toggleTheme = useAppStore((state) => state.toggleTheme);

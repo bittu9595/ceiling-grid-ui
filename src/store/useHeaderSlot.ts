@@ -11,8 +11,9 @@ const useHeaderSlotStore = create<HeaderSlotStore>((set) => ({
   setMenuSlot: (component) => set({ MenuComponent: component }),
 }));
 
-/**
- * Hook for Header to consume the menu slot
+/*
+ * Reads the currently registered header menu slot.
+ * Lets the shared header render page-specific actions.
  */
 export function useHeaderMenuSlot() {
   const MenuComponent = useHeaderSlotStore((state) => state.MenuComponent);

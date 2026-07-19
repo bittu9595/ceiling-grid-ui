@@ -26,6 +26,10 @@ export interface DropdownProps {
 const cx = (...classes: (string | false | undefined)[]) =>
   classes.filter(Boolean).join(" ");
 
+/*
+ * Renders a reusable dropdown with keyboard navigation.
+ * Supports custom trigger content, disabled options, and selection callbacks.
+ */
 export function Dropdown({
   label,
   options,

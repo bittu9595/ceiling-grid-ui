@@ -7,6 +7,10 @@ import ToolSection from "./components/ToolSection";
 import ToolButton from "./components/ToolButton";
 import { useAppStore } from "../../store";
 
+/*
+ * Renders the left-side tool sidebar.
+ * Organizes drafting, component, and action tools for the editor.
+ */
 export function Sidebar() {
   const selectedTool = useAppStore((state) => state.ui.selectedTool);
   const isCollapsed = useAppStore((state) => state.ui.isSidebarCollapsed);

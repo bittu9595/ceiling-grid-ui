@@ -1,12 +1,16 @@
 import { useCallback, type RefObject } from "react";
 import { useAppStore } from "../../../store";
 
-/** Clamp zoom level within min/max bounds */
+/*
+ * Clamp zoom level within min/max bounds.
+ */
 function clampZoom(zoom: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, zoom));
 }
 
-/** Calculate new offset after zoom to keep point under mouse stationary */
+/*
+ * Calculate new offset after zoom to keep the point under the mouse stationary.
+ */
 function calculateZoomOffset(
   mouseX: number,
   mouseY: number,
@@ -22,8 +26,9 @@ function calculateZoomOffset(
   };
 }
 
-/**
- * Hook for viewport zoom controls
+/*
+ * Handles wheel-based viewport zooming.
+ * Keeps the cursor position anchored while adjusting the canvas zoom level.
  */
 export function useViewportZoom(
   containerRef: RefObject<HTMLDivElement | null>,

@@ -2,9 +2,9 @@ import { useMemo } from "react";
 import { useAppStore } from "../../../store";
 import { CEILING_COMPONENTS } from "../../../constants/ceiling-components";
 
-/**
- * Hook to get component statistics from the grid.
- * Subscribes to grid.components and recomputes only when components change.
+/*
+ * Returns the number of each ceiling component currently on the grid.
+ * Recomputes only when the component map changes.
  */
 export function useComponentStats() {
   const components = useAppStore((state) => state.grid.components);

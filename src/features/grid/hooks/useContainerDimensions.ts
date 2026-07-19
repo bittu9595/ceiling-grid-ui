@@ -7,6 +7,10 @@ interface Dimensions {
 
 const DEFAULT_DIMENSIONS: Dimensions = { width: 800, height: 600 };
 
+/*
+ * Tracks the measured size of a grid container.
+ * Returns ref callbacks and live width/height values for resize-aware rendering.
+ */
 export function useContainerDimensions(
   initialDimensions: Dimensions = DEFAULT_DIMENSIONS,
 ) {

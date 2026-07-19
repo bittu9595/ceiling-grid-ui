@@ -11,6 +11,10 @@ interface UseGridCellProps {
   readonly onDragEnd: (row: number, col: number) => void;
 }
 
+/*
+ * Exposes drag and click handlers for a grid cell component.
+ * Converts component position into the canvas coordinates used by Konva.
+ */
 export function useGridCell({
   component,
   offsetX,
@@ -24,6 +28,9 @@ export function useGridCell({
   const xPoint = offsetX + col * cellSize;
   const yPoint = offsetY + row * cellSize;
 
+  /*
+   * Selects the current component and stops the event from bubbling.
+   */
   const handleClick = useCallback(
     (event: { cancelBubble: boolean }) => {
       event.cancelBubble = true;
@@ -32,6 +39,9 @@ export function useGridCell({
     [component, onSelect],
   );
 
+  /*
+   * Starts dragging the component and prevents the event from bubbling.
+   */
   const handleDragStart = useCallback(
     (event: { cancelBubble: boolean }) => {
       event.cancelBubble = true;
@@ -40,6 +50,9 @@ export function useGridCell({
     [component, onDragStart],
   );
 
+  /*
+   * Computes the new row and column after a drag and snaps the item back into the grid.
+   */
   const handleDragEnd = useCallback(
     (event: {
       target: {

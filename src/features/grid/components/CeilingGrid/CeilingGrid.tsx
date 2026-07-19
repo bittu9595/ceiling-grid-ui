@@ -18,6 +18,10 @@ import {
 import { useAppStore } from "../../../../store";
 import { InfoBadge } from "../../../../components";
 
+/*
+ * Renders the interactive ceiling grid canvas.
+ * Handles viewport, selection, drag behavior, and visible component virtualization.
+ */
 export function CeilingGrid() {
   const grid = useAppStore((state) => state.grid);
   const viewport = useAppStore((state) => state.viewport);

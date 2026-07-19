@@ -5,7 +5,10 @@ import { Layout, RouteError } from "../components";
 // Lazy loaded pages
 const GridEditorPage = lazy(() => import("../pages/GridEditorPage"));
 
-// Loading fallback
+/*
+ * Shows a lightweight loading state while a page lazy-loads.
+ * Displays a centered spinner placeholder for route transitions.
+ */
 function PageLoader() {
   return (
     <div className="page-loader">
@@ -32,6 +35,10 @@ const router = createBrowserRouter([
   },
 ]);
 
+/*
+ * Creates and provides the application router.
+ * Wires the layout and page tree for the main editor experience.
+ */
 export function AppRoutes() {
   return <RouterProvider router={router} />;
 }

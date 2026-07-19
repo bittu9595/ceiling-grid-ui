@@ -6,6 +6,10 @@ interface GridFooterProps {
   readonly componentCount: number;
 }
 
+/*
+ * Displays the current grid footprint and usage summary.
+ * Shows tile counts and interaction hints beneath the canvas.
+ */
 export function GridFooter({ width, height, componentCount }: GridFooterProps) {
   return (
     <footer className="grid-footer">

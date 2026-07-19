@@ -6,6 +6,10 @@ interface InfoBadgeProps {
   readonly className?: string;
 }
 
+/*
+ * Renders a floating status badge over the canvas.
+ * Useful for showing contextual information such as the active grid cell.
+ */
 export function InfoBadge({
   children,
   position = "top-right",

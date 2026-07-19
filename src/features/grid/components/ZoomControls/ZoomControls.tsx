@@ -3,6 +3,10 @@ import { Button } from "../../../../components";
 import "./ZoomControls.scss";
 import { useAppStore } from "../../../../store";
 
+/*
+ * Provides viewport zoom controls for the canvas.
+ * Lets users zoom in, zoom out, and reset the current view.
+ */
 export function ZoomControls() {
   const viewport = useAppStore((state) => state.viewport);
   const zoomIn = useAppStore((state) => state.zoomIn);

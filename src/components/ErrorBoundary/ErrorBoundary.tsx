@@ -13,6 +13,10 @@ interface State {
   error: Error | null;
 }
 
+/*
+ * Catches rendering errors in child components.
+ * Falls back to a safe UI and exposes retry behavior.
+ */
 export class ErrorBoundary extends Component<Props, State> {
   state: State = { hasError: false, error: null };
 
@@ -47,7 +51,10 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 }
 
-/** Error component for React Router's errorElement */
+/*
+ * Renders the route-level fallback error view.
+ * Displays the router failure message and offers a page reload action.
+ */
 export function RouteError() {
   const error = useRouteError() as Error;
   return (

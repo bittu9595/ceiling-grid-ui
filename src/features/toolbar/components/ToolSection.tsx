@@ -10,6 +10,10 @@ interface ToolSectionProps {
   readonly onSelectTool: (tool: ToolType) => void;
 }
 
+/*
+ * Groups related sidebar tools into a labeled section.
+ * Renders the selection UI for a tool category.
+ */
 export default function ToolSection({
   title,
   tools,

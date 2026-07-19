@@ -9,6 +9,10 @@ const DEFAULT_HEIGHT = 15;
 const clampSize = (value: number) =>
   Math.min(Math.max(value, MIN_SIZE), MAX_SIZE);
 
+/*
+ * Manages the grid size controls and preset handling.
+ * Keeps custom width/height inputs and preset changes in sync with the store.
+ */
 export function useGridSizeControls() {
   const grid = useAppStore((state) => state.grid);
   const setGridSize = useAppStore((state) => state.setGridSize);
@@ -17,6 +21,9 @@ export function useGridSizeControls() {
   const [customWidth, setCustomWidth] = useState(grid.width.toString());
   const [customHeight, setCustomHeight] = useState(grid.height.toString());
 
+  /*
+   * Applies a preset grid size and resets the related input fields.
+   */
   const handlePresetSelect = useCallback(
     (value: string) => {
       const [width, height] = value.split("x").map(Number);
@@ -28,6 +35,9 @@ export function useGridSizeControls() {
     [setGridSize, resetZoom],
   );
 
+  /*
+   * Clamps the custom width and height values and updates the grid store.
+   */
   const handleCustomSize = useCallback(() => {
     const width = clampSize(Number.parseInt(customWidth) || DEFAULT_WIDTH);
     const height = clampSize(Number.parseInt(customHeight) || DEFAULT_HEIGHT);
@@ -35,6 +45,9 @@ export function useGridSizeControls() {
     resetZoom();
   }, [customWidth, customHeight, setGridSize, resetZoom]);
 
+  /*
+   * Submits the custom size form when Enter is pressed inside the inputs.
+   */
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
       if (e.key === "Enter") {
