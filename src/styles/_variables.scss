@@ -1,0 +1,48 @@
+// Theme variables
+$transition-speed: 0.2s;
+$sidebar-width: 260px;
+$sidebar-collapsed-width: 64px;
+$header-height: 56px;
+$border-radius: 8px;
+$border-radius-sm: 4px;
+$border-radius-lg: 12px;
+
+// Z-index layers
+$z-grid: 1;
+$z-sidebar: 100;
+$z-header: 100;
+$z-floating: 200;
+$z-modal: 300;
+$z-tooltip: 400;
+
+// Component colors
+$color-light: #f7c948;
+$color-air-supply: #52b6d4;
+$color-air-return: #4ead5b;
+$color-smoke-detector: #e74c3c;
+$color-invalid: #9e9e9e;
+
+// Shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md:
+  0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -2px rgba(0, 0, 0, 0.1);
+$shadow-lg:
+  0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  0 4px 6px -4px rgba(0, 0, 0, 0.1);
+$shadow-xl:
+  0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
