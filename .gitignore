@@ -13,6 +13,8 @@ dist-ssr
 *.local
 package-lock.json
 
+.env
+
 # Test outputs
 coverage
 test-results
