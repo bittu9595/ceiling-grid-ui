@@ -1,0 +1,53 @@
+.grid-stats-panel {
+  display: none;
+  padding: $spacing-sm $spacing-md;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+
+  @media (max-width: $breakpoint-lg) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $spacing-md;
+  }
+
+  &__stat {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-size: 12px;
+    color: var(--text-secondary);
+
+    strong {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    &-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    &--light .grid-stats-panel__stat-dot {
+      background-color: $color-light;
+    }
+
+    &--air-supply .grid-stats-panel__stat-dot {
+      background-color: $color-air-supply;
+    }
+
+    &--air-return .grid-stats-panel__stat-dot {
+      background-color: $color-air-return;
+    }
+
+    &--smoke-detector .grid-stats-panel__stat-dot {
+      background-color: $color-smoke-detector;
+    }
+
+    &--invalid .grid-stats-panel__stat-dot {
+      background-color: $color-invalid;
+    }
+  }
+}
