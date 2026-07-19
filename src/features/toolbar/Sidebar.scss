@@ -1,0 +1,194 @@
+.sidebar {
+  @include flex-column;
+  width: $sidebar-width;
+  background-color: var(--bg-primary);
+  border-right: 1px solid var(--border);
+  position: relative;
+  transition: width $transition-speed ease;
+  z-index: $z-sidebar;
+  overflow: hidden;
+
+  &--collapsed {
+    width: $sidebar-collapsed-width;
+
+    .sidebar__content {
+      padding: $spacing-sm;
+    }
+
+    .sidebar__section-title {
+      display: none;
+    }
+
+    .sidebar__footer {
+      display: none;
+    }
+
+    .sidebar__tool {
+      justify-content: center !important;
+      padding: $spacing-sm !important;
+    }
+  }
+
+  &__header-row {
+    @include flex-between;
+    padding: $spacing-md;
+    border-bottom: 1px solid var(--border);
+    min-height: 60px;
+  }
+
+  &__header {
+    flex: 1;
+  }
+
+  &__header-collapsed {
+    @include flex-center;
+    width: 100%;
+    color: var(--text-secondary);
+  }
+
+  &__toggle {
+    @include button-reset;
+    @include flex-center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: $border-radius-sm;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    transition: all $transition-speed ease;
+
+    &:hover {
+      background-color: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+  }
+
+  &__content {
+    flex: 1;
+    @include flex-column;
+    padding: $spacing-md;
+    overflow-y: auto;
+    @include custom-scrollbar;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: $spacing-xs;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  &__section {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__section-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    margin-bottom: $spacing-sm;
+  }
+
+  &__tools {
+    @include flex-column;
+    gap: $spacing-xs;
+  }
+
+  &__tool {
+    // Override Button component defaults for sidebar layout
+    display: flex !important;
+    justify-content: flex-start !important;
+    width: 100%;
+    height: auto !important;
+    gap: $spacing-sm;
+    padding: $spacing-sm $spacing-md !important;
+    border-radius: $border-radius-sm;
+    color: var(--text-secondary);
+    font-size: 14px;
+    transition: all $transition-speed ease;
+    position: relative;
+    border: none !important;
+
+    &:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    &--active {
+      background-color: var(--accent);
+      color: white;
+
+      &:hover {
+        background-color: var(--accent-hover);
+        color: white;
+      }
+
+      .sidebar__tool-shortcut {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+      }
+    }
+
+    &--danger {
+      color: var(--color-danger);
+
+      &:hover {
+        background-color: var(--color-danger-bg);
+        color: var(--color-danger);
+      }
+    }
+
+    // Component type colors (subtle indicator)
+    &--light .sidebar__tool-icon {
+      color: $color-light;
+    }
+
+    &--air-supply .sidebar__tool-icon {
+      color: $color-air-supply;
+    }
+
+    &--air-return .sidebar__tool-icon {
+      color: $color-air-return;
+    }
+
+    &--smoke-detector .sidebar__tool-icon {
+      color: $color-smoke-detector;
+    }
+
+    &--invalid .sidebar__tool-icon {
+      color: $color-invalid;
+    }
+
+    &--active .sidebar__tool-icon {
+      color: inherit;
+    }
+  }
+
+  &__tool-icon {
+    @include flex-center;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  &__tool-label {
+    flex: 1;
+    text-align: left;
+    @include truncate;
+  }
+}
+
+// Tooltip for collapsed state
+.sidebar--collapsed .sidebar__tool[data-tooltip] {
+  @include tooltip;
+}
